@@ -1,0 +1,14 @@
+box: golang:1.6
+build:
+  base-path: /go/src/github.com/wercker/auth
+  steps:
+    - script:
+        name: go build
+        code: >
+          CGO_ENABLED=0
+          go build
+          -ldflags="-s -X github.com/wercker/docker-scratch-demo.GitCommit=$WERCKER_GIT_COMMIT -X github.com/wercker/docker-scratch-demo.PatchVersion=$(( ($(date +%s) - $(date --date=20150101 +%s) )/(60*60*24) )) -X github.com/wercker/docker-scratch-demo.Compiled=$(date +%s)"
+          -installsuffix cgo
+          -o $WERCKER_OUTPUT_DIR/docker-scratch-demo
+
+   
