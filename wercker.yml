@@ -14,10 +14,9 @@ build:
 push:
   steps:
     - internal/docker-scratch-push:
-        repository: quay.io/wercker/docker-scratch-demo
-        registry: https://quay.io
-        username: $DOCKER_USERNAME
-        password: $DOCKER_PASSWORD
+        repository: wercker/docker-scratch-demo
+        username: $USERNAME
+        password: $PASSWORD
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         entrypoint: /docker-scratch-demo
 
