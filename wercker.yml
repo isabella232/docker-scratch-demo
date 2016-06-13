@@ -19,5 +19,5 @@ push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
-        entrypoint:/docker-scratch-demo
+        entrypoint: /docker-scratch-demo
 
